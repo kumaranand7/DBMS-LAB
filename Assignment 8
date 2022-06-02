@@ -1,6 +1,3 @@
-
-
-
 create table Employees (
 EmpID VARCHAR2(3) Check (EmpId LIKE 'E%') primary key ,
 Ename VARCHAR2(25) not null ,
@@ -24,7 +21,7 @@ SELECT EmpID,
 FROM Employees;
 
 -- 1.3	Display the employee details by using various date formats supported by Oracle SQL.
-
+-- 										MONTH DD YYYY format
 SELECT EmpID,
        Ename,     
 			 to_char(DOB,'MONTH DD YYYY'),
@@ -32,7 +29,7 @@ SELECT EmpID,
 			 salary
 FROM Employees;
 
-
+-- 							DD/MONTH/YYYY format
 
 SELECT EmpID,
        Ename,     
@@ -41,7 +38,7 @@ SELECT EmpID,
 			 salary
 FROM Employees;
 
-
+--                          YYYY-MONTH-DD format
 SELECT EmpID,
        Ename,     
 			 to_char(DOB,'YYYY-MONTH-DD'),
