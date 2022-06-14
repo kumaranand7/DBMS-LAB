@@ -1,0 +1,50 @@
+CREATE TABLE Employies
+(empid number,
+name varchar2(20),
+doj DATE,
+jobid varchar2(20),
+salary NUMBER);
+ 
+insert into Employies VALUES(100,'Aman jian','17-jun-2017','AD_PRES',24000)
+insert into Employies VALUES(101,'YASH KUMAR','15-jUL-2019','AD_VP',17000)
+insert into Employies VALUES(102,'AYUSHI','12-AUG-2017','AD_PROG',9000)
+insert into Employies VALUES(103,'KAMAL','15-SEP-2016','IT_PROG',6000)
+insert into Employies VALUES(105,'MADHAV MOHAN','14-JUL-2017','IT_PROG',4000)
+insert into Employies VALUES(106,'ASTHA SHARMA','27-jun-2017','PU_CLERK',2500)
+
+
+-- 1.1	Write a query to display the name for those employees who gets more salary than the employee whose id is 104.
+
+SELECT name FROM Employies
+WHERE salary>(SELECT salary FROM Employies
+WHERE empid=104);
+
+-- 1.2	Write a query to display the name,salary,department id, job id for those employees who works in the same designation as the employee works whose id is 103.
+
+SELECT name,salary,jobid FROM Employies
+WHERE jobid=(SELECT jobid FROM Employies
+WHERE empid=103);
+
+-- 1.3	Write a query to display the name,salary,department id for those employees who earn such amount of salary which is the smallest salary of any of the departments.
+
+SELECT name, salary, jobid  
+FROM Employies  
+WHERE salary IN  
+( SELECT MIN(salary)
+FROM Employies  
+GROUP BY jobid 
+);
+
+
+-- 1.4	Write a query to display the employee details who are having the same date of birth as of employee having id 106.
+SELECT * FROM Employies
+WHERE DOJ=(SELECT DOJ FROM Employies
+WHERE EMPID=106);
+
+
+-- 1.5	Write a query to display the employee details who are having the  date of birth after the date of birth of employee having ID 102
+
+SELECT * FROM Employies
+WHERE DOJ>(SELECT DOJ FROM Employies
+WHERE EMPID=106);
+
