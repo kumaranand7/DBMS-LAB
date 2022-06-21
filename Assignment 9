@@ -1,0 +1,99 @@
+create table Orders123 (OrderNo Number(5), PurchaseAmt Number(10), Ord_Date Date, CustomerId Number(5), Salesman_Id Number(5)); 
+insert into Orders123 values(0001,1000,'02-feb-2000',1111,0000);
+insert into Orders123 values(0002,2000,'10-mar-2001',1111,0000);
+insert into Orders123 values(0003,3000,'13-apr-2006',1111,0000);
+insert into Orders123 values(0004,4000,'12-may-2009',1111,0000);
+insert into Orders123 values(0005,5000,'22-dec-2003',1111,0000);
+insert into Orders123 values(0006,6000,'17-jun-2010',1111,0000);
+
+--1
+SELECT SUM (PurchaseAmt) 
+FROM Orders123;
+
+--2
+SELECT AVG (PurchaseAmt) 
+FROM Orders123;
+
+--3
+SELECT COUNT (DISTINCT Salesman_Id) 
+FROM Orders123;
+
+--4
+SELECT COUNT(*) 
+FROM Orders123;
+
+--5
+SELECT MAX (PurchaseAmt) 
+FROM Orders123;
+
+--6
+SELECT MIN(purchaseAmt) 
+FROM Orders123;
+
+--7
+SELECT CustomerId,MAX(PurchaseAmt) 
+FROM Orders123 
+GROUP BY CustomerId;
+
+--create table Orders123 (OrderNo Number(5), PurchaseAmt Number(10), Ord_Date Date, CustomerId Number(5), Salesman_Id Number(5)); 
+insert into Orders123 values(0001,1000,'02-feb-2000',1111,0000);
+insert into Orders123 values(0002,2000,'10-mar-2001',1111,0000);
+insert into Orders123 values(0003,3000,'13-apr-2006',1111,0000);
+insert into Orders123 values(0004,4000,'12-may-2009',1111,0000);
+insert into Orders123 values(0005,5000,'22-dec-2003',1111,0000);
+insert into Orders123 values(0006,6000,'17-jun-2010',1111,0000);
+
+--1
+SELECT SUM (PurchaseAmt) 
+FROM Orders123;
+
+--2
+SELECT AVG (PurchaseAmt) 
+FROM Orders123;
+
+--3
+SELECT COUNT (DISTINCT Salesman_Id) 
+FROM Orders123;
+
+--4
+SELECT COUNT(*) 
+FROM Orders123;
+
+--5
+SELECT MAX (PurchaseAmt) 
+FROM Orders123;
+
+--6
+SELECT MIN(purchaseAmt) 
+FROM Orders123;
+
+--7
+SELECT CustomerId,MAX(PurchaseAmt) 
+FROM Orders123 
+GROUP BY CustomerId;
+
+--8
+SELECT CustomerId,Ord_Date,MAX(PurchaseAmt) 
+FROM Orders123 
+GROUP BY CustomerId,Ord_Date 
+HAVING MAX(PurchaseAmt)>2000.00;
+
+--9
+SELECT Salesman_Id,MAX(PurchaseAmt) 
+FROM Orders123 
+WHERE Ord_Date = '17-aug-2012' 
+GROUP BY Salesman_Id;
+
+--10
+SELECT CustomerId,Ord_Date,MAX(PurchaseAmt) 
+FROM Orders123 
+GROUP BY CustomerId,Ord_Date 
+HAVING MAX(PurchaseAmt)>2000.00;
+
+--9
+SELECT Salesman_Id,MAX(PurchaseAmt) 
+FROM Orders123 
+WHERE Ord_Date = '17-aug-2012' 
+GROUP BY Salesman_Id;
+
+--10
