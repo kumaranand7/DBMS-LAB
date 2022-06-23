@@ -1,0 +1,33 @@
+create table customer111
+(
+ID NUMBER(1), Name VARCHAR(10),age number(3), address VARCHAR(50),salary NUMBER(10)
+);
+
+INSERT INTO customer111 VALUES (1 , 'Ramesh',  32, 'Ahmedabad' , 2000.00 );
+
+INSERT INTO customer111 VALUES (2 ,'Khilan', 25 , 'Delhi' , 1500.00);
+
+INSERT INTO customer111 VALUES (3 , 'kaushi' , 23 , 'Kota' ,2000.00);
+
+INSERT INTO customer111 VALUES (4 , 'Chaitali' , 25 , 'Mumbai' , 6500.00 );
+
+INSERT INTO customer111 VALUES ( 5 , 'Hardik' , 27 , 'Bhopal' , 8500.00 );
+
+INSERT INTO customer111 VALUES ( 6 , 'Komal' ,22 ,'MP' , 4500.00  );
+
+
+
+select *from customer111;
+
+CREATE OR REPLACE TRIGGER display_salary_changes 
+BEFORE  UPDATE ON customer111 
+FOR EACH ROW 
+ 
+BEGIN 
+--     
+dbms_output.put_line('Salary ' ); 
+
+END; 
+UPDATE customer111 set salary = salary*0.5 where salary >1500;
+
+
